@@ -33,7 +33,7 @@ a. Navigate to Your Raw Data Directory:
 
 cd path/to/your/raw_data_directory
 
-This sets your working directory for the macOS terminal to the location of the NCBI_SNP_EFEMP1.vcf file 
+This code sets your working directory on the macOS terminal to the location of the NCBI_SNP_EFEMP1.vcf file on your comnputer
 
 
 b. Extract the relevant SNP information for the EFEMP1 gene from the NCBI genome wide SNP data 
@@ -42,7 +42,7 @@ tabix path/to/your/raw_data_directory/NCBI_SNP_ALL.vcf.gz 2:55865967-55924139 > 
 
 This extracts the SNP information for EFEMP1 and deposits that information into a new .vcf file into the working directory location 
 
-IMPORTANT NOTE: The Genome region was identified from ENSEMBL avalibale at (https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for CRCh38. 
+IMPORTANT NOTE: The Genome region was identified from ENSEMBL avalibale at [EnsemblEFEMP1](https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for CRCh38. 
 
 
 
