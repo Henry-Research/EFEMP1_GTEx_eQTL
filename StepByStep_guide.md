@@ -197,6 +197,9 @@ b. Copy and paste the filtered "GTEx format" rows into the dashboard and select 
 
 c. Select search. GTEx will display the expression of the gene of interest with the variant of interst within the tissues selected. Signficant searches will be highlighted in red. The analysis is now complete. 
 
+d. The results from the GTEx analysis can be found in the 'Results/' directory. 
 
+
+NOTE: This analysis was perfomed on the 17th July 2024, and the GTEx database is under countinual update. 
 Note: GTEx only allows up to 30 inputs per search
 Note: GTEx data is collated from 1000 individuals (as of 17th July 2023), thus, rare variants may not be present
