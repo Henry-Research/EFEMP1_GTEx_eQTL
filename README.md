@@ -1,6 +1,6 @@
 #EFEMP1_GTEx_eQTL 
 
-This repository contains the raw data, raw ouput and step by step method for idenitfying SNPs in EFEMP1 asosciated with herniation and ocular pathologies using GWAS, NCBI and GTEx data.
+This repository contains the raw data, instructions and output of an analysis idenitfying SNPs in EFEMP1 asosciated with herniation and ocular pathologies. 
 
 
 This repository contains all the neccasary raw data for analysing other traits assocaited with EFEMP1 outside of herniation and ocular pathologies, and the method is applicable to other genes found within the publically avaliable GWAS Catalog data base. 
