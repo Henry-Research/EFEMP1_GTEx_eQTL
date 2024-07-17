@@ -6,7 +6,7 @@ This repository contains the raw data, instructions and output of an analysis id
 This repository contains all the neccasary raw data for analysing other traits assocaited with EFEMP1 outside of herniation and ocular pathologies, and the method is applicable to other genes found within the publically avaliable GWAS Catalog data base. 
 
 
-# AIM : To create a list of SNPs for a gene in the correct format which can then be fed into GTEX 
+# AIM : To create a list of SNPs, for a gene, in the correct format, which can then be fed into GTEX 
 
 
 # Software Requirments 
@@ -29,13 +29,13 @@ This repository contains all the neccasary raw data for analysing other traits a
 
 
 
-# GTEX 
+# GTEx
 
-- GTEX (Genotype-Tissue Expression project) is a publically available database which collated RNA sequencing data from various tissues across 1000 post-mortem donors. 
+- GTEx (Genotype-Tissue Expression project) is a publically available database which collated RNA sequencing data from various tissues across 1000 post-mortem donors. 
 
 - Genotypes from the donors was also anlaysed to allow for the correlation of genetic variants with gene expresson levels, this is referred to as an eQTL (Expression quantitiatie trait locus)
 
-- GTEX is publically avaliable at [GTExPortal](https://gtexportal.org/home/) 
+- GTEx is publically avaliable at [GTExPortal](https://gtexportal.org/home/) 
 
 - Access to the eQTL dashboard is publically avalibale at [GTEx_eQTL](https://gtexportal.org/home/eqtlDashboardPage) 
 
