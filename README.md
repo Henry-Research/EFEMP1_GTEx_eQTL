@@ -46,7 +46,7 @@ This repository contains all the neccasary raw data for analysing other traits a
 
 - The final excel file from the step by step analysis can be found in the 'results/' directory as "EFEMP1_Hernia_Ocular_GITHUB.xlsx"
 
-- The output from the GTEx eQTL analysis can be found in the 'results/' directory. "GTEx_eQTL_Hernia.pdf" for EFEMP1 variants assocaited with herniation pathologies. "GTEx_eQTL_Ocular.pdf" for EFEMP1 variants assocaited with ocular pathologies. NOTE: Only tissues with signficant changes in expression is shown. 
+- The output from the GTEx eQTL analysis can be found in the 'Results/' directory. "GTEx_eQTL_Hernia.pdf" for EFEMP1 variants assocaited with herniation pathologies. "GTEx_eQTL_Ocular.pdf" for EFEMP1 variants assocaited with ocular pathologies. NOTE: Only tissues with signficant changes in expression are shown. 
 
 # Instructions
 
