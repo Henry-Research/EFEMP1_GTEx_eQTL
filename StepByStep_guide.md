@@ -2,7 +2,7 @@
 
 This guide provides detailed instructions on how to replicate the bioinformatics analysis for identifying SNPs associated with herniation and Ocular traits using GWAS, NCBI and GTEx data.
 
-## Prerequisites
+# Prerequisites
 
 Before starting, ensure you have the following software installed:
 - Python 3.8+
@@ -20,7 +20,7 @@ Before starting, ensure you have the raw data files downloaded within a known lo
 
 
 
-######## Steps
+#### Steps
 
 
 
@@ -42,7 +42,7 @@ tabix path/to/your/raw_data_directory/NCBI_SNP_ALL.vcf.gz 2:55865967-55924139 > 
 
 # This extracts the SNP information for EFEMP1 and deposits that information into a new .vcf file into the working directory location 
 
-## IMPORTANT NOTE: The Genome region was identified from ENSEMBL avalibale at (https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for CRCh38. 
+# IMPORTANT NOTE: The Genome region was identified from ENSEMBL avalibale at (https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for CRCh38. 
 
 
 
@@ -103,7 +103,7 @@ b. Navigate to the Excell workbook currently working on and import the sheet "GW
 c. Close and load, rename the sheet to "GTEx Input" 
 
 
-## IMPORTANT NOTE: Choosing the "GWAS_CATALOG_EFEMP1" sheet and not the "NCBI_SNP_EFEMP1" sheet is essential. Excel still recognises the old "GWAS_CATALOG_EFEMP1" sheet as a .tsv file, which cannot be used in the next step. By reimporting it through "Get data" it removes the .tsv metadata, allowing it to be used in the next step. 
+IMPORTANT NOTE: Choosing the "GWAS_CATALOG_EFEMP1" sheet and not the "NCBI_SNP_EFEMP1" sheet is essential. Excel still recognises the old "GWAS_CATALOG_EFEMP1" sheet as a .tsv file, which cannot be used in the next step. By reimporting it through "Get data" it removes the .tsv metadata, allowing it to be used in the next step. 
 
 
 
@@ -133,7 +133,7 @@ b. Add a new collumn in the "GTEx Input" sheet called "GWAS SNP Isolated" and in
 
 # This code will split the SNP value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
 
-## IMPORTANT NOTE: It is normal at this stage to have many #VALUE in many rows - this is all of the chromosome positions in the "NCBI SNP EFEMP1" table which did not have a match within the "GWAS_CATALOG_EFEMP1" sheet - which is expected since since the NCBI SNP EFEMP1 sheet covers all of the postitions of EFEMP1, whereas the "GWAS_CATALOG_EFEMP1" sheet only covers positions with a reported GWAS SNP
+IMPORTANT NOTE: It is normal at this stage to have many "Value" errors in many rows - this is all of the chromosome positions in the "NCBI SNP EFEMP1" table which did not have a match within the "GWAS_CATALOG_EFEMP1" sheet - which is expected since since the NCBI SNP EFEMP1 sheet covers all of the postitions of EFEMP1, whereas the "GWAS_CATALOG_EFEMP1" sheet only covers positions with a reported GWAS SNP
 
 
 ### Step 7: Creating a GTEx Format column 
@@ -142,7 +142,7 @@ a. Add a new collumn on the "GTEx Input" sheet called "GTEx Format"
 
 b. Input the excel code " " ="ENSG00000115380.19,chr2_" & [@[NCBI Position]] & "_" &[@[NCBI Reference Allele]]&"_"&[@[GWAS SNP Isolated ]]&"_b38"" " into the "GTEx Format" collumn
 
-# This code creates the string that can be put into the GTEx eQTL dashboard
+This code creates the string that can be put into the GTEx eQTL dashboard
 
 
 
@@ -152,7 +152,7 @@ a. Create a new collumn called "Duplicate Filtering"
 
 b. Insert the excel code "=IF(COUNTIF($S:$S, S6) = 1, "Unique", IF(COUNTIF($S$2:S6, S6) = 1, "Duplicate representer", "Duplicate"))" into the "Duplicate Filtering" collumn
 
-# This code labels the string in the "GTEx Format" Colummn as unique, Duplicate, or as a duplicate repsentor - which is the a single representive string from a duplicate group
+This code labels the string in the "GTEx Format" Colummn as unique, Duplicate, or as a duplicate repsentor - which is the a single representive string from a duplicate group
 
 
 
@@ -183,9 +183,9 @@ j. The collumn "GTEx Format" now contains the list of Strings which can be direc
 k. Navigating to View > Custom Views, allows for easy switching and adding various filtering programs
 
 
-## NOTE: "Custom Views" will be greyed out if ALL sheets across the entire Excel book are not converted to a Range 
+NOTE: "Custom Views" will be greyed out if ALL sheets across the entire Excel book are not converted to a Range 
 
-## NOTE: Many inputs in the "GTEx Format" collumn will display identical Reference and Alternative alleles, these can be filtered out in another collumn with the code =IF(O21 <> R21, "Different", "Same"). This compares the "NCBI Reference Allele" in collumn O, and the "GWAS SNP Isolated" in collumn R. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
+NOTE: Many inputs in the "GTEx Format" collumn will display identical Reference and Alternative alleles, these can be filtered out in another collumn with the code =IF(O21 <> R21, "Different", "Same"). This compares the "NCBI Reference Allele" in collumn O, and the "GWAS SNP Isolated" in collumn R. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
 
 
 
@@ -198,5 +198,5 @@ b. Copy and paste the filtered "GTEx format" rows into the dashboard and select 
 c. Select search. GTEx will display the expression of the gene of interest with the variant of interst within the tissues selected. Signficant searches will be highlighted in red. The analysis is now complete. 
 
 
-# Note: GTEx only allows up to 30 inputs per search
-# Note: GTEx data is collated from 1000 individuals (as of 17th July 2023), thus, rare variants may not be present
+Note: GTEx only allows up to 30 inputs per search
+Note: GTEx data is collated from 1000 individuals (as of 17th July 2023), thus, rare variants may not be present
