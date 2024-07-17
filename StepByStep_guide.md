@@ -26,7 +26,7 @@ Before starting, ensure you have the raw data files downloaded within a known lo
 
 ### Step 1: Data Extraction and Preparation
 
-IMPORTANT NOTE: Do not perform Step 1 if the reader is using the provided **NCBI_EFEMP1_SNP.vcf**, instead of the non-provided large **NCBI_SNP_ALL.vcf** file. Refer to README.md for more information. 
+IMPORTANT NOTE: Do not perform Step 1 if the reader is using the provided **NCBI_EFEMP1_SNP.vcf**, instead of the non-provided **NCBI_SNP_ALL.vcf.gz** file. Refer to README.md for more information. 
 
 
 a. Navigate to Your Raw Data Directory:
@@ -36,13 +36,13 @@ cd path/to/your/raw_data_directory
 This code sets your working directory on the macOS terminal to the location of the NCBI_SNP_EFEMP1.vcf file on your comnputer
 
 
-b. Extract the relevant SNP information for the EFEMP1 gene from the NCBI genome wide SNP data 
+b. Extract the relevant SNP information for the EFEMP1 gene from **NCBI_SNP_ALL.vcf.gz**
 
 tabix path/to/your/raw_data_directory/NCBI_SNP_ALL.vcf.gz 2:55865967-55924139 > NCBI_SNP_EFEMP1.vcf
 
 This extracts the SNP information for EFEMP1 and deposits that information into a new .vcf file into the working directory location 
 
-IMPORTANT NOTE: The Genome region was identified from ENSEMBL avalibale at [EnsemblEFEMP1](https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for CRCh38. 
+IMPORTANT NOTE: The Genome region for EFEMP1 was identified from ENSEMBL, avalibale at [EnsemblEFEMP1](https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for the human reference genome CRCh38. 
 
 
 
@@ -103,7 +103,7 @@ b. Navigate to the Excell workbook currently working on and import the sheet "GW
 c. Close and load, rename the sheet to "GTEx Input" 
 
 
-IMPORTANT NOTE: Choosing the "GWAS_CATALOG_EFEMP1" sheet and not the "NCBI_SNP_EFEMP1" sheet is essential. Excel still recognises the old "GWAS_CATALOG_EFEMP1" sheet as a .tsv file, which cannot be used in the next step. By reimporting it through "Get data" it removes the .tsv metadata, allowing it to be used in the next step. 
+IMPORTANT NOTE: Choosing the "GWAS_CATALOG_EFEMP1" sheet and not the "NCBI_SNP_EFEMP1" sheet is essential. Excel still recognises the old "GWAS_CATALOG_EFEMP1" sheet as a .tsv file, which cannot be used in the next step. By reimporting it through "Get data" it removes the .tsv metadata. 
 
 
 
@@ -122,6 +122,11 @@ E. Expand the "NCBI_SNP_EFEMP1" collumns by selecting the bi-directional arrows 
 
 F. Select Close and Load
 
+NOTE: Thus far, the goal has been to merge data from the **NCBI_SNP_ALL.vcf.gz** or the ••NCBI_SNP_EFEMP1.vcf•• to the the **GWAS_CATALOG_EFEMP1** file. This merging is essential because the GTEx eQTL dashboard requires both the reference and alternative alleles for a specific gene at a specific location. The GWAS_CATALOG_EFEMP1 table contains the alternative allele and the associated trait but lacks the reference allele. On the other hand, the NCBI table contain both the reference and alternative alleles but lack information on associated traits. Individually, these files are incomplete; however, combined, they provide all the necessary information. We have successfully merged these two files based on the common chromosome position information for each alternative/reference allele.
+
+NOTE: It is normal to at this stage to have many empty cells. This is because the **GWAS_CATALOG_EFEMP1** is a catalog of alleles within EFEMP1 that have been assocaited with a trait -  it does not contain every single position along EFEMP1. Whereas the NCBI file(s) spans the entire gene at every single position. Thus, when the merge is performed, many sites within the NCBI table do not have a match, leaving the cells empty. 
+
+
 
 ### Step 6: Splitting the "GWAS RS/SNP" collumn into seperate entities 
 
@@ -133,7 +138,8 @@ b. Add a new collumn in the "GTEx Input" sheet called "GWAS SNP Isolated" and in
 
 This code will split the SNP value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
 
-IMPORTANT NOTE: It is normal at this stage to have many "Value" errors in many rows - this is all of the chromosome positions in the "NCBI SNP EFEMP1" table which did not have a match within the "GWAS_CATALOG_EFEMP1" sheet - which is expected since since the NCBI SNP EFEMP1 sheet covers all of the postitions of EFEMP1, whereas the "GWAS_CATALOG_EFEMP1" sheet only covers positions with a reported GWAS SNP
+IMPORTANT NOTE: It is normal at this stage to have many "Value" errors in many rows - this is due to the phenoomenon outlined above, in which every single postions along the NCBI table does not have a match in the GWAS_CATALOG_EFEMP1 table. 
+
 
 
 ### Step 7: Creating a GTEx Format column 
@@ -152,7 +158,7 @@ a. Create a new collumn called "Duplicate Filtering"
 
 b. Insert the excel code "=IF(COUNTIF($S:$S, S6) = 1, "Unique", IF(COUNTIF($S$2:S6, S6) = 1, "Duplicate representer", "Duplicate"))" into the "Duplicate Filtering" collumn
 
-This code labels the string in the "GTEx Format" Colummn as unique, Duplicate, or as a duplicate repsentor - which is the a single representive string from a duplicate group
+This code labels the string in the "GTEx Format" Colummn as unique, Duplicate, or as a duplicate repsentor. Duplicate representor is a representive string from a group of duplicates. 
 
 
 
@@ -164,26 +170,26 @@ b. Navigate back to the "GTEx Iput" sheet
 
 c. Filter column "GWAS SNP Isolated" to only "A" "G" "C" "T"
 
-d. Filter column "GWAS Mapped Trait" for traits relating to herniation "Diphragmatic hernia" "femoral hernia" "Hernia" "Hiatus hernia" "Ingiunal hernia" "uterine prolapse" "pelic Organ Prolapse"
+d. Filter column for traits related to herniation pathologies: "GWAS Mapped Trait" for traits relating to herniation "Diphragmatic hernia" "femoral hernia" "Hernia" "Hiatus hernia" "Ingiunal hernia" "uterine prolapse" "pelic Organ Prolapse"
 
 e. Filter column "GWAS Mapped Gene" to only "EFEMP1"
 
-f. Filter collumn "Duplicate filtering" to "Unique" and "Duplicate representor" 
+f. Filter collumn "Duplicate filtering" for "Unique" and "Duplicate representor" 
 
 g. The collumn "GTEx Format" now contains the list of Strings which can be directly copied and pasted into eQTL GTEx 
 
 g. Navigate to View > Custom Views and Save filtering criteria as "Herniation_Criteria". 
 
-h. Re-filter collumn "GWAS Mapped Trait" for traits related to ocular pathologies "cup-to-disc ratio measurement" "optic cup area measurement" "open-angle glaucoma" "refractive error"
+h. Re-filter collumn "GWAS Mapped Trait" for traits related to ocular pathologies: "cup-to-disc ratio measurement" "optic cup area measurement" "open-angle glaucoma" "refractive error"
+
+i. The collumn "GTEx Format" now contains the list of Strings which can be directly copied and pasted into eQTL GTEx 
 
 i. Navigate to View > Custom Views and Save filtering criteria as "Ocular_Criteria"
 
-j. The collumn "GTEx Format" now contains the list of Strings which can be directly copied and pasted into eQTL GTEx 
-
-k. Navigating to View > Custom Views, allows for easy switching and adding various filtering programs
+k. Navigating to View > Custom Views, allows for easy switching between the two saved filtering criteria 
 
 
-NOTE: "Custom Views" will be greyed out if ALL sheets across the entire Excel book are not converted to a Range 
+NOTE: "Custom Views" will be greyed out if ALL sheets across the entire Excell book are not converted to a range via Table > Convert to Range
 
 NOTE: Many inputs in the "GTEx Format" collumn will display identical Reference and Alternative alleles, these can be filtered out in another collumn with the code =IF(O21 <> R21, "Different", "Same"). This compares the "NCBI Reference Allele" in collumn O, and the "GWAS SNP Isolated" in collumn R. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
 
@@ -191,13 +197,13 @@ NOTE: Many inputs in the "GTEx Format" collumn will display identical Reference 
 
 ### Step 10: GTEx 
 
-a. Go to the GTEx eQTL dashboard, avaliable at "https://gtexportal.org/home/eqtlDashboardPage". 
+a. Go to the GTEx eQTL dashboard, avaliable at [GTExeQTL]"https://gtexportal.org/home/eqtlDashboardPage". 
 
-b. Copy and paste the filtered "GTEx format" rows into the dashboard and select the tissues of interest. For this analysis we selected all tissues. 
+b. Copy and paste the filtered "GTEx format" rows into the dashboard and select the tissues of interest. For this analysis we selected all tissues and then performed a selected anaylsis, only selecting tissues with significant changes in epression for ease of viualisation. 
 
 c. Select search. GTEx will display the expression of the gene of interest with the variant of interst within the tissues selected. Signficant searches will be highlighted in red. The analysis is now complete. 
 
-d. The results from the GTEx analysis can be found in the 'Results/' directory. 
+d. The results from our GTEx analysis can be found in the 'Results/' directory. 
 
 
 NOTE: This analysis was perfomed on the 17th July 2024, and the GTEx database is under countinual update. 
