@@ -39,7 +39,7 @@ This repository contains all the neccasary raw data for analysing other traits a
 
 - GTEX is publically avaliable at [GTExPortal](https://gtexportal.org/home/) 
 
-- Access to the eQTL dashboard is publically avalibale at (https://gtexportal.org/home/eqtlDashboardPage) 
+- Access to the eQTL dashboard is publically avalibale at [GTEx_eQTL](https://gtexportal.org/home/eqtlDashboardPage) 
 
 
 # Results 
@@ -50,4 +50,4 @@ This repository contains all the neccasary raw data for analysing other traits a
 
 # Instructions
 
-- For detailed step-by-step instruction on how to perform the analysis, see 'StepByStep_guide.md' 
+- For detailed step-by-step instruction on how to perform the analysis, see 'StepByStep_guide.md' in the 'Instructions/' directory 
