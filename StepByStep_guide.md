@@ -20,7 +20,7 @@ Before starting, ensure you have the raw data files downloaded within a known lo
 
 
 
-#### Steps
+### Steps
 
 
 
@@ -131,7 +131,7 @@ This code will split the RS value from the RS/SNP string from the GWAS RS/SNP Co
 
 b. Add a new collumn in the "GTEx Input" sheet called "GWAS SNP Isolated" and input the code " =LEFT(F2, FIND("-", F2) - 1) " =MID(F2, FIND("-", F2) + 1, 1) "
 
-# This code will split the SNP value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
+This code will split the SNP value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
 
 IMPORTANT NOTE: It is normal at this stage to have many "Value" errors in many rows - this is all of the chromosome positions in the "NCBI SNP EFEMP1" table which did not have a match within the "GWAS_CATALOG_EFEMP1" sheet - which is expected since since the NCBI SNP EFEMP1 sheet covers all of the postitions of EFEMP1, whereas the "GWAS_CATALOG_EFEMP1" sheet only covers positions with a reported GWAS SNP
 
