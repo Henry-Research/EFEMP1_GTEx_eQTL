@@ -26,7 +26,7 @@ Before starting, ensure you have the raw data files downloaded within a known lo
 
 ### Step 1: Data Extraction and Preparation
 
-##IMPORTANT NOTE: Do not perform Step 1 if the reader is using the provided **NCBI_EFEMP1_SNP.vcf**, instead of the non-provided large **NCBI_SNP_ALL.vcf** file. Refer to README.md for more information. 
+IMPORTANT NOTE: Do not perform Step 1 if the reader is using the provided **NCBI_EFEMP1_SNP.vcf**, instead of the non-provided large **NCBI_SNP_ALL.vcf** file. Refer to README.md for more information. 
 
 
 a. Navigate to Your Raw Data Directory:
@@ -40,9 +40,9 @@ b. Extract the relevant SNP information for the EFEMP1 gene from the NCBI genome
 
 tabix path/to/your/raw_data_directory/NCBI_SNP_ALL.vcf.gz 2:55865967-55924139 > NCBI_SNP_EFEMP1.vcf
 
-# This extracts the SNP information for EFEMP1 and deposits that information into a new .vcf file into the working directory location 
+This extracts the SNP information for EFEMP1 and deposits that information into a new .vcf file into the working directory location 
 
-# IMPORTANT NOTE: The Genome region was identified from ENSEMBL avalibale at (https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for CRCh38. 
+IMPORTANT NOTE: The Genome region was identified from ENSEMBL avalibale at (https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000115380;r=2:55865967-55924139). The relevant gene region will depend on on the gene enquiring and the reference genome version. Here we chose the location for CRCh38. 
 
 
 
