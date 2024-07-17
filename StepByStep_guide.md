@@ -5,10 +5,8 @@ This guide provides detailed instructions on how to replicate the bioinformatics
 # Prerequisites
 
 Before starting, ensure you have the following software installed:
-- Python 3.8+
-- pandas 1.3.0
-- tabix
 - Excel 2016+
+- tabix (optional) - not required if the reader is using the provided **NCBI_EFEMP1_SNP.vcf**, instead of the non-provided **NCBI_SNP_ALL.vcf.gz** file
 
 
 Before starting, ensure you have the raw data files downloaded within a known location:
