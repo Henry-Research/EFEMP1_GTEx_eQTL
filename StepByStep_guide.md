@@ -33,7 +33,7 @@ a. Navigate to Your Raw Data Directory:
 
 cd path/to/your/raw_data_directory
 
-# This sets your working directory for the macOS terminal to the location of the NCBI_SNP_EFEMP1.vcf file 
+This sets your working directory for the macOS terminal to the location of the NCBI_SNP_EFEMP1.vcf file 
 
 
 b. Extract the relevant SNP information for the EFEMP1 gene from the NCBI genome wide SNP data 
@@ -127,7 +127,7 @@ F. Select Close and Load
 
 a. Add a new collumn in the "GTEx Input" sheet called "RS Isolated" and input the code " =LEFT(F2, FIND("-", F2) - 1) "
 
-# This code will split the RS value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
+This code will split the RS value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
 
 b. Add a new collumn in the "GTEx Input" sheet called "GWAS SNP Isolated" and input the code " =LEFT(F2, FIND("-", F2) - 1) " =MID(F2, FIND("-", F2) + 1, 1) "
 
