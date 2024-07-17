@@ -20,7 +20,7 @@ This repository contains all the neccasary raw data for analysing other traits a
 
 - Raw data files can be found in the 'raw_data/' directory 
 
-- IMPORTANT: The **NCBI_SNP_ALL.vcf** file is too large to be depostied in GITHUB (16gb). The reader has two options: 1. Download the 16gb file at the location highlighted below, or 2. perform the analysis with the provided **NCBI_EFEMP1_SNP.vcf** file, which is the extracted region for EFEMP1 from **NCBI_SNP_ALL.vcf**. 
+- IMPORTANT: The **NCBI_SNP_ALL.vcf.gz** file is too large to be depostied in GITHUB (16gb). The reader has two options: 1. Download the 16gb file at the location highlighted below, or 2. perform the analysis with the provided **NCBI_EFEMP1_SNP.vcf** file, which is the extracted region for EFEMP1 from **NCBI_SNP_ALL.vcf.gz**. 
 
 
 
@@ -28,7 +28,7 @@ This repository contains all the neccasary raw data for analysing other traits a
 
 - **GWAS_Catalog_EFEMP1.tsv** The GWAS catalog provides summary-level finding from genetic assocaition studies. Acess the catalog at [EBI GWAS Catalog](https://www.ebi.ac.uk/gwas/). Downloading the associations will download all the reported associations for the searched gene as a .tsv file
 
-- **NCBI_SNP_ALL.vcf** The NCBI SNP data base provides all deposited SNPs for humans. Access the up-to-date repository for all known SNPs for humans at [NCBI nih](https://ftp.ncbi.nih.gov/snp/organisms/) and choose the relevant reference genome (human_9606_b151_GRCh38p7), followed by file type (VCF), followed by data type (00-All.vcf.gz)
+- **NCBI_SNP_ALL.vcf.gz** The NCBI SNP data base provides all deposited SNPs for humans. Access the up-to-date repository for all known SNPs for humans at [NCBI nih](https://ftp.ncbi.nih.gov/snp/organisms/) and choose the relevant reference genome (human_9606_b151_GRCh38p7), followed by file type (VCF), followed by data type (00-All.vcf.gz)
 
 
 # GTEX 
