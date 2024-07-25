@@ -154,13 +154,23 @@ This code creates the string that can be put into the GTEx eQTL dashboard
 
 a. Create a new collumn called "Duplicate Filtering"
 
-b. Insert the excel code "=IF(COUNTIF($S:$S, S6) = 1, "Unique", IF(COUNTIF($S$2:S6, S6) = 1, "Duplicate representer", "Duplicate"))" into the "Duplicate Filtering" collumn
+b. Insert the excel code "=IF(COUNTIFS($S:$S, S6, $K:$K, K6) = 1, "Unique", IF(COUNTIFS($S$2:S6, S6, $K$2:K6, K6) = 1, "Duplicate representer", "Duplicate"))" into the "Duplicate Filtering" collumn
 
-This code labels the string in the "GTEx Format" Colummn as unique, Duplicate, or as a duplicate repsentor. Duplicate representor is a representive string from a group of duplicates. 
+This code labels the string in the "GTEx Format" Colummn (S) as unique, Duplicate, or as a duplicate repsentor (Duplicate representor is a representive string from a group of duplicates). It then also filters the "GWAS" mapped trait collumn" (K) to see if the mapped trait is the same or distinct. This filter ensures that the same chromosome postions and reference alleles but distinct mapped traits are not filtered out further down the pipeline. 
 
 
 
-### Step 9: Filtering process 
+### 9: Creating a second duplication filtering collumn 
+
+a. Create a anew collumn called "Control Filtering"
+
+b. Insert the excel code "=IF(COUNTIF($S:$S, S2) = 1, "Unique", IF(COUNTIF($S$2:S2, S2) = 1, "Duplicate representer", "Duplicate"))" into the "Control Filtering" collumn 
+
+This code labels the string in the "GTEx Format" Colummn (S) as unique, Duplicate, or as a duplicate repsentor (Duplicate representor is a representive string from a group of duplicates). Unlike the "Duplication filtering" collumn it does filter for traits.
+
+
+
+### Step 10: Filtering process 
 
 a. Convert all tables across all sheets to a range via Table > Convert to Range. 
 
@@ -168,7 +178,7 @@ b. Navigate back to the "GTEx Iput" sheet
 
 c. Filter column "GWAS SNP Isolated" to only "A" "G" "C" "T"
 
-d. Filter column for traits related to herniation pathologies: "GWAS Mapped Trait" for traits relating to herniation "Diphragmatic hernia" "femoral hernia" "Hernia" "Hiatus hernia" "Ingiunal hernia" "uterine prolapse" "pelic Organ Prolapse"
+d. Filter column for traits related to herniation pathologies: "GWAS Mapped Trait" for traits relating to herniation "Diphragmatic hernia" "Femoral hernia" "Hernia" "Hiatus hernia" "Ingiunal hernia" "Uterine prolapse" "Pelvic Organ Prolapse"
 
 e. Filter column "GWAS Mapped Gene" to only "EFEMP1"
 
@@ -178,18 +188,28 @@ g. The collumn "GTEx Format" now contains the list of Strings which can be direc
 
 g. Navigate to View > Custom Views and Save filtering criteria as "Herniation_Criteria". 
 
-h. Re-filter collumn "GWAS Mapped Trait" for traits related to ocular pathologies: "cup-to-disc ratio measurement" "optic cup area measurement" "open-angle glaucoma" "refractive error"
+h. Re-filter collumn "GWAS Mapped Trait" for traits related to ocular pathologies: "Corneal resistance factor" "Central corneal thickness" "cup-to-disc ratio measurement" "optic cup area measurement" "open-angle glaucoma" "refractive error"
 
 i. The collumn "GTEx Format" now contains the list of Strings which can be directly copied and pasted into eQTL GTEx 
 
-i. Navigate to View > Custom Views and Save filtering criteria as "Ocular_Criteria"
+j. Navigate to View > Custom Views and Save filtering criteria as "Ocular_Criteria"
 
-k. Navigating to View > Custom Views, allows for easy switching between the two saved filtering criteria 
+k. Refilter the collumn "GWAS Mapped Trait" for all of the traits not chosen for the herniation or ocular pathologies criteria. 
+
+l. Filter the collumn "Control filtering" for "Duplicate representor" and "Unique". This is important, as some loci with the same alternative allele, will be associated with multiple traits. Thus, cluttering the output.
+
+m. This output serves as a control. ie. looking at changes in expression within loci not associated with herniation or ocular pathologies. 
+
+n. Navigate to View > Custom Views and Save filtering criteria as "Control" 
+
+o. Navigating to View > Custom Views, allows for easy switching between the two saved filtering criteria 
 
 
 NOTE: "Custom Views" will be greyed out if ALL sheets across the entire Excell book are not converted to a range via Table > Convert to Range
 
 NOTE: Many inputs in the "GTEx Format" collumn will display identical Reference and Alternative alleles, these can be filtered out in another collumn with the code =IF(O21 <> R21, "Different", "Same"). This compares the "NCBI Reference Allele" in collumn O, and the "GWAS SNP Isolated" in collumn R. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
+
+•IMPORTANT NOTE: Some variants in the "control" criteria will have have loci which have been associated with herniaiton/ocular pathologies AND other pathologies. being aware or these is crucial to avoid confusion upon analysis 
 
 
 
