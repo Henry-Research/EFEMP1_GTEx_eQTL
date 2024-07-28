@@ -205,11 +205,11 @@ n. Navigate to View > Custom Views and Save filtering criteria as "Control"
 o. Navigating to View > Custom Views, allows for easy switching between the two saved filtering criteria 
 
 
-NOTE: "Custom Views" will be greyed out if ALL sheets across the entire Excell book are not converted to a range via Table > Convert to Range
+NOTE: "Custom Views" will be greyed out if ALL sheets across the entire excell book are not converted to a range via Table > Convert to Range
 
-NOTE: Many inputs in the "GTEx Format" collumn will display identical Reference and Alternative alleles, these can be filtered out in another collumn with the code =IF(O21 <> R21, "Different", "Same"). This compares the "NCBI Reference Allele" in collumn O, and the "GWAS SNP Isolated" in collumn R. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
+NOTE: Many inputs in the "GTEx Format" collumn will display identical reference and elternative alleles, these can be filtered out in another collumn with the code =IF(O21 <> R21, "Different", "Same"). This compares the "NCBI Reference Allele" in collumn O, and the "GWAS SNP Isolated" in collumn R. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
 
-•IMPORTANT NOTE: Some variants in the "control" criteria will have have loci which have been associated with herniaiton/ocular pathologies AND other pathologies. being aware or these is crucial to avoid confusion upon analysis 
+#IMPORTANT NOTE: Some variants in the "control" criteria will have have loci which have been associated with herniaiton/ocular pathologies AND other pathologies. Being aware of these is crucial to avoid confusion upon analysis. 
 
 
 
@@ -217,13 +217,13 @@ NOTE: Many inputs in the "GTEx Format" collumn will display identical Reference 
 
 a. Go to the GTEx eQTL dashboard, avaliable at [GTExeQTL]"https://gtexportal.org/home/eqtlDashboardPage". 
 
-b. Copy and paste the filtered "GTEx format" rows into the dashboard and select the tissues of interest. For this analysis we selected all tissues and then performed a selected anaylsis, only selecting tissues with significant changes in epression for ease of viualisation. 
+b. Copy and paste the filtered "GTEx format" rows into the dashboard and select the tissues of interest. For this analysis we selected all tissues and then performed a selected anaylsis, only selecting tissues with significant changes in expression for ease of viualisation. Select Search. 
 
-c. Select search. GTEx will display the expression of the gene of interest with the variant of interst within the tissues selected. Signficant searches will be highlighted in red. The analysis is now complete. 
+c. GTEx will display the expression of the gene of interest with the variant of interst within the tissues selected. Signficant searches will be highlighted in red. 
 
-d. The results from our GTEx analysis can be found in the 'Results/' directory. 
+D. The analysis is now complete. 
 
 
-NOTE: This analysis was perfomed on the 17th July 2024, and the GTEx database is under countinual update. 
+Note: The results from our GTEx analysis can be found in the 'Results/' directory. This analysis was perfomed on the 17th July 2024, and the GTEx database is under countinual update. 
 Note: GTEx only allows up to 30 inputs per search
 Note: GTEx data is collated from 1000 individuals (as of 17th July 2023), thus, rare variants may not be present
