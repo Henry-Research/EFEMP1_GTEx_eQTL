@@ -132,7 +132,7 @@ a. Add a new collumn in the "GTEx Input" sheet called "RS Isolated" and input th
 
 This code will split the RS value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
 
-b. Add a new collumn in the "GTEx Input" sheet called "GWAS SNP Isolated" and input the code " =LEFT(F2, FIND("-", F2) - 1) " =MID(F2, FIND("-", F2) + 1, 1) "
+b. Add a new collumn in the "GTEx Input" sheet called "GWAS SNP Isolated" and input the code " =MID(F2, FIND("-", F2) + 1, 1) "
 
 This code will split the SNP value from the RS/SNP string from the GWAS RS/SNP Collumn located in Collumn F 
 
@@ -144,7 +144,7 @@ IMPORTANT NOTE: It is normal at this stage to have many "Value" errors in many r
 
 a. Add a new collumn on the "GTEx Input" sheet called "GTEx Format" 
 
-b. Input the excel code " " ="ENSG00000115380.19,chr2_" & [@[NCBI Position]] & "_" &[@[NCBI Reference Allele]]&"_"&[@[GWAS SNP Isolated ]]&"_b38"" " into the "GTEx Format" collumn
+b. Input the excel code " ="ENSG00000115380.19,chr2_" & [@[NCBI Position]] & "_" &[@[NCBI Reference Allele]]&"_"&[@[GWAS SNP Isolated]]&"_b38" " into the "GTEx Format" collumn
 
 This code creates the string that can be put into the GTEx eQTL dashboard
 
