@@ -144,7 +144,7 @@ IMPORTANT NOTE: It is normal at this stage to have many "Value" errors in many r
 
 a. Add a new collumn on the "GTEx Input" sheet called "GTEx Format" 
 
-b. Input the excel code " ="ENSG00000115380.19,chr2_" & [@[NCBI Position]] & "_" &[@[NCBI Reference Allele]]&"_"&[@[GWAS SNP Isolated]]&"_b38" " into the "GTEx Format" collumn
+b. Input the excel code ="ENSG00000115380.19,chr2_" & [@[NCBI Position]] & "_" &[@[NCBI Reference Allele]]&"_"&[@[GWAS SNP Isolated]]&"_b38" into the "GTEx Format" collumn
 
 This code creates the string that can be put into the GTEx eQTL dashboard
 
