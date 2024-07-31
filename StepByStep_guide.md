@@ -152,9 +152,9 @@ This code creates the string that can be put into the GTEx eQTL dashboard
 
 ### Step 8: Creatng a duplication fitlering collumn 
 
-a. Create a new collumn called "Duplicate Filtering"
+a. Create a new collumn called "Criteria Filtering"
 
-b. Insert the excel code "=IF(COUNTIFS($S:$S, S6, $K:$K, K6) = 1, "Unique", IF(COUNTIFS($S$2:S6, S6, $K$2:K6, K6) = 1, "Duplicate representer", "Duplicate"))" into the "Duplicate Filtering" collumn
+b. Insert the excel code "=IF(COUNTIF($S:$S, S2) = 1, "Unique", IF(COUNTIF($S$2:S2, S2) = 1, "Duplicate representer", "Duplicate"))" into the "Criteria Filtering" collumn
 
 This code labels the string in the "GTEx Format" Colummn (S) as unique, Duplicate, or as a duplicate repsentor (Duplicate representor is a representive string from a group of duplicates). It then also filters the "GWAS" mapped trait collumn" (K) to see if the mapped trait is the same or distinct. This filter ensures that the same chromosome postions and reference alleles but distinct mapped traits are not filtered out further down the pipeline. 
 
@@ -164,7 +164,7 @@ This code labels the string in the "GTEx Format" Colummn (S) as unique, Duplicat
 
 a. Create a anew collumn called "Control Filtering"
 
-b. Insert the excel code "=IF(COUNTIF($S:$S, S2) = 1, "Unique", IF(COUNTIF($S$2:S2, S2) = 1, "Duplicate representer", "Duplicate"))" into the "Control Filtering" collumn 
+b. Insert the excel code "=IF(COUNTIFS($S:$S, S6, $K:$K, K6) = 1, "Unique", IF(COUNTIFS($S$2:S6, S6, $K$2:K6, K6) = 1, "Duplicate representer", "Duplicate"))" into the "Control Filtering" collumn
 
 This code labels the string in the "GTEx Format" Colummn (S) as unique, Duplicate, or as a duplicate repsentor (Duplicate representor is a representive string from a group of duplicates). Unlike the "Duplication filtering" collumn it does filter for traits.
 
@@ -175,6 +175,8 @@ This code labels the string in the "GTEx Format" Colummn (S) as unique, Duplicat
 a. Convert all tables across all sheets to a range via Table > Convert to Range. 
 
 b. Navigate back to the "GTEx Iput" sheet 
+
+c. Ensure filtering header icons are active under Data > Filter 
 
 c. Filter column "GWAS SNP Isolated" to only "A" "G" "C" "T"
 
@@ -207,7 +209,7 @@ o. Navigating to View > Custom Views, allows for easy switching between the two 
 
 NOTE: "Custom Views" will be greyed out if ALL sheets across the entire excell book are not converted to a range via Table > Convert to Range
 
-NOTE: Many inputs in the "GTEx Format" collumn will display identical reference and elternative alleles, these can be filtered out in another collumn with the code =IF(O21 <> R21, "Different", "Same"). This compares the "NCBI Reference Allele" in collumn O, and the "GWAS SNP Isolated" in collumn R. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
+NOTE: Many inputs in the "GTEx Format" collumn will display identical reference and elternative alleles, these can be filtered out in another collumn with the code =IF(T2<> V2, "Different", "Same"). This compares the "NCBI Reference Allele" in collumnTO, and the "GWAS SNP Isolated" in collumn V. Its important to clear the filtering by navigating to Data > Filter > Clear before inserting the code. 
 
 #IMPORTANT NOTE: Some variants in the "control" criteria will have have loci which have been associated with herniaiton/ocular pathologies AND other pathologies. Being aware of these is crucial to avoid confusion upon analysis. 
 
