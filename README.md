@@ -6,7 +6,7 @@ This repository contains the raw data, instructions and output of an analysis id
 This repository contains all the neccasary raw data for analysing other traits assocaited with EFEMP1 outside of herniation and ocular pathologies, and the method is applicable to other genes found within the publically avaliable GWAS Catalog data base. 
 
 
-# AIM : To create a list of SNPs, for a gene, in the correct format, which can then be fed into GTEX 
+# AIM : To create a list of SNPs, for a gene, in the correct format, which can then be fed into the GTEX Calculater at https://gtexportal.org/home/testyourown 
 
 
 # Software Requirments 
@@ -31,20 +31,20 @@ This repository contains all the neccasary raw data for analysing other traits a
 
 # GTEx
 
-- GTEx (Genotype-Tissue Expression project) is a publically available database which collated RNA sequencing data from various tissues across 1000 post-mortem donors. 
+- GTEx (Genotype-Tissue Expression project) is a publically available database which collated RNA sequencing data from various tissues across 838 post-mortem donors. 
 
 - Genotypes from the donors was also anlaysed to allow for the correlation of genetic variants with gene expresson levels, this is referred to as an eQTL (Expression quantitiatie trait locus)
 
 - GTEx is publically avaliable at [GTExPortal](https://gtexportal.org/home/) 
 
-- Access to the eQTL dashboard is publically avalibale at [GTEx_eQTL](https://gtexportal.org/home/eqtlDashboardPage) 
+- Access to the eQTL calculater is publically avalibale at https://gtexportal.org/home/testyourown 
 
 
 # Results 
 
-- The final excel file from the step by step analysis can be found in the 'Results/' directory as "EFEMP1_Hernia_Ocular_GITHUB.xlsx"
+- The final excel file from the step by step analysis can be found in the 'Results/' directory as "EFEMP1_eQTL_Output.xlsx"
 
-- The output from the GTEx eQTL analysis can be found in the 'Results/' directory. "GTEx_eQTL_Hernia.pdf" for EFEMP1 variants assocaited with herniation pathologies. "GTEx_eQTL_Ocular.pdf" for EFEMP1 variants assocaited with ocular pathologies. NOTE: For easty visualisation, only tissues with signficant changes in expression are shown. 
+- The complete list of EFEMP1 SNPs with tissues attached inputted into the GTEx eQTL calculater can be found in the  'Results/' directory as "EFEMP1_GTEx_Input". These can be directly, inputted into https://gtexportal.org/home/testyourown. The reader can then begin the 'StepByStep_guide.md' in the 'Merging/' directory at step 10 
 
 # Instructions
 
