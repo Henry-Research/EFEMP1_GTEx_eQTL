@@ -1,0 +1,31 @@
+# Extracts dpSNP information (Chromosome, chromosome position, alternative allele, reference allele) for a targeted region from genome wide dbSNP data 
+
+
+
+Please ensure the following software is downloaded : 
+	• Tabix, part of the HTSlib 1.16 package 
+	• The genome wide dbSNP data is too large to attach with GITHUB (16gb). It is available at https://www.ncbi.nlm.nih.gov/snp/ > FTP Download >  organisms > human_9606_b151_GRCh38p7 > VCF> 00-common_all.vcf
+
+Note 
+
+	• This extraction was performed with MacOS, similar functions are available for windows operating systems. 
+
+
+## Step 1 
+
+	A) EFEMP1, upstream and downstream genes from www.ensembl.org 
+		a. Upstream_Gene : PNPT1 : chr2, 55,634,061-55,693,863 
+		b. Target_Gene : EFEMP1 : chr2, 55,865,967-55,924,139
+		c. Downstream_Gene : RN7SKP208 : chr2,  55,951,654-55,952,014
+
+## Step 2 
+
+	A) Open the relevant operating system termina 
+		a. MacOS : Terminal
+		b. Windows : Command prompt
+	B) Input the code : 
+		a. Cd/path/to/NCBI_SNP_ALL.vcf.gz
+		b. This code orientates the Terminal to the location of the NCBI_ALL.vcf.gz file
+	C) Input the code :
+		a. /Users/path/to/NCBI_SNP_ALL.vcf.gz 2:55693863-55951654 > NCBI_SNP_EFEMP1_ENTIRE.vcf
+This code extracts the region from the last base pair of the EFEMP1 upstream gene (PNPT1), to the first base pair of the EFEMP1 downstream gene (RN7SKP208) and deposits it into a file called NCBI_SNP_EFEMP1_ENTIRE.vcf
