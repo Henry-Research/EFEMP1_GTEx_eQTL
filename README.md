@@ -1,11 +1,15 @@
-# The instructions are split across two files 
+# Instructions
 
-'Extracting_Gene_Region' is the first step of the analysis. 
+The analysis process is split across two files:
 
-'Merging' is the second, and final step of the analysis 
+1. **Extracting_Gene_Region.md**: This is the first step of the analysis.
+2. **Merging.md**: This is the second and final step of the analysis.
 
-## The reader can begin at one of three steps : 
-1. From the very beggening of the analysis with 'Extracting_Gene_Region' 
-2. From 'Merging', which requires downloading :NCBI_SNP_EFEMP and GWAS_CATALOG_EFEMP1 from the 'raw_files' directory
-3. From Step 10 of 'Merging', which only requires downloading 'EFEMP1_GTEx_Strings' from the 'raw_files' directory
+## Starting Points
+The reader can begin the analysis at one of three points:
+
+1. From the very beginning of the analysis with **Extracting_Gene_Region.md**.
+2. Directly from the **Merging.md** step, requiring **NCBI_SNP_EFEMP** and **GWAS_CATALOG_EFEMP1** files from the `raw_files` directory.
+3. From Step 10 of **Merging.md**, which only requires the **EFEMP1_GTEx_Strings** file from the `raw_files` directory.
+
 
