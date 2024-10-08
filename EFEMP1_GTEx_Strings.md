@@ -1,6 +1,5 @@
 # EFEMP1_GTEx_Strings
 
-
 ## Hernia 
 rs2627761,ENSG0000115380.19,Adipose_Visceral_Omentum
 rs2627761,ENSG0000115380.19,Adrenal_Gland
