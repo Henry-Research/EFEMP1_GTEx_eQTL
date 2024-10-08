@@ -1,51 +1,33 @@
-#EFEMP1_GTEx_eQTL 
+# EFEMP1_GTEx_eQTL
 
-This repository contains the raw data, instructions and output of an analysis idenitfying SNPs in EFEMP1 asosciated with herniation and ocular pathologies. 
+This repository contains the raw data, instructions, and output of an analysis identifying SNPs in **EFEMP1** associated with herniation and ocular pathologies.
 
+It also includes all necessary raw data for analyzing additional traits linked to **EFEMP1** beyond herniation and ocular pathologies. The method is adaptable to other genes available in the publicly available GWAS Catalog database.
 
-This repository contains all the neccasary raw data for analysing other traits assocaited with EFEMP1 outside of herniation and ocular pathologies, and the method is applicable to other genes found within the publically avaliable GWAS Catalog data base. 
+## AIM
+To generate a list of SNPs in the appropriate format for input into the GTEx eQTL Calculator at [GTEx Portal](https://gtexportal.org/home/testyourown).
 
+## Software Requirements
+- Excel 2016+
+- Tabix (optional)
 
-# AIM : To create a list of SNPs, for a gene, in the correct format, which can then be fed into the GTEX Calculater at https://gtexportal.org/home/testyourown 
+## Data Files
+- Raw data files can be found in the `raw_data/` directory.
+- **NCBI_SNP_ALL.vcf.gz**: The file is too large to be deposited on GitHub (16 GB). You have two options:
+  1. Download the file from the [NCBI SNP FTP site](https://www.ncbi.nlm.nih.gov/snp/) > FTP Download > organisms > human_9606_b151_GRCh38p7 > VCF > 00-common_all.vcf.gz.
+  2. Use the provided **NCBI_EFEMP1_SNP.vcf**, which contains the extracted region for **EFEMP1**.
 
+## Data Sources
+- **GWAS_Catalog_EFEMP1.tsv**: Downloaded from the [EBI GWAS Catalog](https://www.ebi.ac.uk/gwas/). It contains all reported associations for the searched gene.
+- **NCBI_SNP_ALL.vcf.gz**: Obtainable from the [NCBI SNP FTP site](https://www.ncbi.nlm.nih.gov/snp/).
 
-# Software Requirments 
-- Excel 2016+ 
-- tabix (optional) 
+## GTEx
+- **GTEx** (Genotype-Tissue Expression project) is a publicly available database that correlates genetic variants with gene expression levels across 838 post-mortem donors.
+- The eQTL Calculator can be accessed at [GTEx Portal](https://gtexportal.org/home/testyourown).
 
-# Data Files 
+## Results
+- The final Excel file, **EFEMP1_eQTL_Output.xlsx**, can be found in the `Results/` directory.
+- The complete list of **EFEMP1** SNPs with tissue annotations, **EFEMP1_GTEx_Input**, is also in the `Results/` directory and can be directly inputted into the GTEx eQTL calculator.
 
-- Raw data files can be found in the 'raw_data/' directory 
-
-- IMPORTANT: The **NCBI_SNP_ALL.vcf.gz** file is too large to be depostied in GitHub (16gb). The reader has two options: 1. Download the 16gb file at the location highlighted below, or 2. perform the analysis with the provided **NCBI_EFEMP1_SNP.vcf** file, which is the extracted region for EFEMP1 from **NCBI_SNP_ALL.vcf.gz**. 
-
-
-
-# Data Sources 
-
-- **GWAS_Catalog_EFEMP1.tsv** The GWAS catalog provides summary-level finding from genetic assocaition studies. Acess the catalog at [EBI GWAS Catalog](https://www.ebi.ac.uk/gwas/). Downloading the associations will download all the reported associations for the searched gene as a .tsv file
-
-- **NCBI_SNP_ALL.vcf.gz** The NCBI SNP data base provides all deposited SNPs for humans. Access the up-to-date repository for all known SNPs for humans at [NCBI nih]([https://ftp.ncbi.nih.gov/snp/organisms/](https://www.ncbi.nlm.nih.gov/snp/)) > FTP Download > organisms > human_9606_b151_GRCh38p7 > VCF > 00-common_all.vcf.gz   
-
-
-
-# GTEx
-
-- GTEx (Genotype-Tissue Expression project) is a publically available database which collated RNA sequencing data from various tissues across 838 post-mortem donors. 
-
-- Genotypes from the donors was also anlaysed to allow for the correlation of genetic variants with gene expresson levels, this is referred to as an eQTL (Expression quantitiatie trait locus)
-
-- GTEx is publically avaliable at [GTExPortal](https://gtexportal.org/home/) 
-
-- Access to the eQTL calculater is publically avalibale at https://gtexportal.org/home/testyourown 
-
-
-# Results 
-
-- The final excel file from the step by step analysis can be found in the 'Results/' directory as "EFEMP1_eQTL_Output.xlsx"
-
-- The complete list of EFEMP1 SNPs with tissues attached inputted into the GTEx eQTL calculater can be found in the  'Results/' directory as "EFEMP1_GTEx_Input". These can be directly, inputted into https://gtexportal.org/home/testyourown. The reader can then begin the 'StepByStep_guide.md' in the 'Merging/' directory at step 10 
-
-# Instructions
-
-- For detailed step-by-step instruction on how to perform the analysis, see 'StepByStep_guide.md' in the 'Instructions/' directory 
+## Instructions
+For detailed step-by-step instructions on how to perform the analysis, see **StepByStep_guide.md** in the `Instructions/` directory.
